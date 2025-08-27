@@ -7,7 +7,7 @@
 /**
  * DS1307 block
  */
-//% weight=20 color=#8010f0 icon="\uf017" block="DS1307"
+//% weight=20 color=#8010f0 icon="\uf017" block="Horloge DS1307"
 namespace DS1307 {
     let DS1307_I2C_ADDR = 104;
     let DS1307_REG_SECOND = 0
@@ -21,7 +21,7 @@ namespace DS1307 {
     let DS1307_REG_RAM = 8
 
     /**
-     * set ds1307's reg
+     * écrire un registre du DS1307
      */
     function setReg(reg: number, dat: number): void {
         let buf = pins.createBuffer(2);
@@ -31,7 +31,7 @@ namespace DS1307 {
     }
 
     /**
-     * get ds1307's reg
+     * lire un registre du DS1307
      */
     function getReg(reg: number): number {
         pins.i2cWriteNumber(DS1307_I2C_ADDR, reg, NumberFormat.UInt8BE);
@@ -39,21 +39,21 @@ namespace DS1307 {
     }
 
     /**
-     * convert a Hex data to Dec
+     * convertir Hex → Décimal
      */
     function HexToDec(dat: number): number {
         return (dat >> 4) * 10 + (dat % 16);
     }
 
     /**
-     * convert a Dec data to Hex
+     * convertir Décimal → Hex
      */
     function DecToHex(dat: number): number {
         return Math.idiv(dat, 10) * 16 + (dat % 10)
     }
 
     /**
-     * start ds1307 (go on)
+     * démarrer la RTC (reprendre)
      */
     //% blockId="DS1307_START" block="démarrer"
     //% weight=52 blockGap=8
@@ -64,7 +64,7 @@ namespace DS1307 {
     }
 
     /**
-     * stop ds1307 (pause)
+     * mettre en pause la RTC
      */
     //% blockId="DS1307_STOP" block="pause"
     //% weight=51 blockGap=8
@@ -75,7 +75,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Year
+     * lire l'année
      */
     //% blockId="DS1307_GET_YEAR" block="année"
     //% weight=99 blockGap=8
@@ -85,8 +85,8 @@ namespace DS1307 {
     }
 
     /**
-     * set year
-     * @param dat is the Year will be set, eg: 2018
+     * régler l'année
+     * @param dat Année à régler, ex: 2018
      */
     //% blockId="DS1307_SET_YEAR" block="régler année %dat"
     //% weight=69 blockGap=8
@@ -96,7 +96,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Month
+     * lire le mois
      */
     //% blockId="DS1307_GET_MONTH" block="mois"
     //% weight=98 blockGap=8
@@ -106,8 +106,8 @@ namespace DS1307 {
     }
 
     /**
-     * set month
-     * @param dat is Month will be set.  eg: 2
+     * régler le mois
+     * @param dat Mois à régler, ex: 2
      */
     //% blockId="DS1307_SET_MONTH" block="régler mois %dat"
     //% weight=68 blockGap=8
@@ -118,7 +118,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Day
+     * lire le jour (du mois)
      */
     //% blockId="DS1307_GET_DAY" block="jour"
     //% weight=97 blockGap=8
@@ -128,8 +128,8 @@ namespace DS1307 {
     }
 
     /**
-     * set day
-     * @param dat is the Day will be set, eg: 15
+     * régler le jour (du mois)
+     * @param dat Jour à régler, ex: 15
      */
     //% blockId="DS1307_SET_DAY" block="régler jour %dat"
     //% weight=67 blockGap=8
@@ -140,7 +140,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Week Day
+     * lire le jour de la semaine
      */
     //% blockId="DS1307_GET_WEEKDAY" block="jour de la semaine"
     //% weight=96 blockGap=8
@@ -150,8 +150,8 @@ namespace DS1307 {
     }
 
     /**
-     * set weekday
-     * @param dat is the Week Day will be set, eg: 4
+     * régler le jour de la semaine
+     * @param dat Semaine 1..7
      */
     //% blockId="DS1307_SET_WEEKDAY" block="régler jour de la semaine %dat"
     //% weight=66 blockGap=8
@@ -162,7 +162,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Hour
+     * lire l'heure
      */
     //% blockId="DS1307_GET_HOUR" block="heure"
     //% weight=95 blockGap=8
@@ -172,8 +172,8 @@ namespace DS1307 {
     }
 
     /**
-     * set hour
-     * @param dat is the Hour will be set, eg: 0
+     * régler l'heure
+     * @param dat Heure 0..23
      */
     //% blockId="DS1307_SET_HOUR" block="régler heure %dat"
     //% weight=65 blockGap=8
@@ -184,7 +184,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Minute
+     * lire la minute
      */
     //% blockId="DS1307_GET_MINUTE" block="minute"
     //% weight=94 blockGap=8
@@ -194,8 +194,8 @@ namespace DS1307 {
     }
 
     /**
-     * set minute
-     * @param dat is the Minute will be set, eg: 0
+     * régler la minute
+     * @param dat Minute 0..59
      */
     //% blockId="DS1307_SET_MINUTE" block="régler minute %dat"
     //% weight=64 blockGap=8
@@ -206,7 +206,7 @@ namespace DS1307 {
     }
 
     /**
-     * get Second
+     * lire la seconde
      */
     //% blockId="DS1307_GET_SECOND" block="seconde"
     //% weight=93 blockGap=8
@@ -216,8 +216,8 @@ namespace DS1307 {
     }
 
     /**
-     * set second
-     * @param dat is the Second will be set, eg: 0
+     * régler la seconde
+     * @param dat Seconde 0..59
      */
     //% blockId="DS1307_SET_SECOND" block="régler seconde %dat"
     //% weight=63 blockGap
@@ -228,14 +228,14 @@ namespace DS1307 {
     }
 
     /**
-     * set Date and Time
-     * @param year is the Year will be set, eg: 2018
-     * @param month is the Month will be set, eg: 2
-     * @param day is the Day will be set, eg: 15
-     * @param weekday is the Weekday will be set, eg: 4
-     * @param hour is the Hour will be set, eg: 0
-     * @param minute is the Minute will be set, eg: 0
-     * @param second is the Second will be set, eg: 0
+     * régler date et heure (tout-en-un)
+     * @param year Année ex: 2018
+     * @param month Mois ex: 2
+     * @param day Jour ex: 15
+     * @param weekday Jour de semaine ex: 4
+     * @param hour Heure ex: 0
+     * @param minute Minute ex: 0
+     * @param second Seconde ex: 0
      */
     //% blockId="DS1307_SET_DATETIME" block="régler année %year|mois %month|jour %day|jour de la semaine %weekday|heure %hour|minute %minute|seconde %second"
     //% weight=60 blockGap
