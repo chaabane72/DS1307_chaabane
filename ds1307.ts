@@ -55,7 +55,7 @@ namespace DS1307 {
     /**
      * start ds1307 (go on)
      */
-    //% blockId="DS1307_START" block="start"
+    //% blockId="DS1307_START" block="démarrer"
     //% weight=52 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function start() {
@@ -77,7 +77,7 @@ namespace DS1307 {
     /**
      * get Year
      */
-    //% blockId="DS1307_GET_YEAR" block="year"
+    //% blockId="DS1307_GET_YEAR" block="année"
     //% weight=99 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getYear(): number {
@@ -88,7 +88,7 @@ namespace DS1307 {
      * set year
      * @param dat is the Year will be set, eg: 2018
      */
-    //% blockId="DS1307_SET_YEAR" block="set year %dat"
+    //% blockId="DS1307_SET_YEAR" block="régler année %dat"
     //% weight=69 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function setYear(dat: number): void {
@@ -98,7 +98,7 @@ namespace DS1307 {
     /**
      * get Month
      */
-    //% blockId="DS1307_GET_MONTH" block="month"
+    //% blockId="DS1307_GET_MONTH" block="mois"
     //% weight=98 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getMonth(): number {
@@ -109,7 +109,7 @@ namespace DS1307 {
      * set month
      * @param dat is Month will be set.  eg: 2
      */
-    //% blockId="DS1307_SET_MONTH" block="set month %dat"
+    //% blockId="DS1307_SET_MONTH" block="régler mois %dat"
     //% weight=68 blockGap=8
     //% dat.min=1 dat.max=12
     //% parts=DS1307 trackArgs=0
@@ -120,7 +120,7 @@ namespace DS1307 {
     /**
      * get Day
      */
-    //% blockId="DS1307_GET_DAY" block="day"
+    //% blockId="DS1307_GET_DAY" block="jour"
     //% weight=97 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getDay(): number {
@@ -131,7 +131,7 @@ namespace DS1307 {
      * set day
      * @param dat is the Day will be set, eg: 15
      */
-    //% blockId="DS1307_SET_DAY" block="set day %dat"
+    //% blockId="DS1307_SET_DAY" block="régler jour %dat"
     //% weight=67 blockGap=8
     //% dat.min=1 dat.max=31
     //% parts=DS1307 trackArgs=0
@@ -142,7 +142,7 @@ namespace DS1307 {
     /**
      * get Week Day
      */
-    //% blockId="DS1307_GET_WEEKDAY" block="weekday"
+    //% blockId="DS1307_GET_WEEKDAY" block="jour de la semaine"
     //% weight=96 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getWeekday(): number {
@@ -153,7 +153,7 @@ namespace DS1307 {
      * set weekday
      * @param dat is the Week Day will be set, eg: 4
      */
-    //% blockId="DS1307_SET_WEEKDAY" block="set weekday %dat"
+    //% blockId="DS1307_SET_WEEKDAY" block="régler jour de la semaine %dat"
     //% weight=66 blockGap=8
     //% dat.min=1 dat.max=7
     //% parts=DS1307 trackArgs=0
@@ -164,7 +164,7 @@ namespace DS1307 {
     /**
      * get Hour
      */
-    //% blockId="DS1307_GET_HOUR" block="hour"
+    //% blockId="DS1307_GET_HOUR" block="heure"
     //% weight=95 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getHour(): number {
@@ -175,7 +175,7 @@ namespace DS1307 {
      * set hour
      * @param dat is the Hour will be set, eg: 0
      */
-    //% blockId="DS1307_SET_HOUR" block="set hour %dat"
+    //% blockId="DS1307_SET_HOUR" block="régler heure %dat"
     //% weight=65 blockGap=8
     //% dat.min=0 dat.max=23
     //% parts=DS1307 trackArgs=0
@@ -197,7 +197,7 @@ namespace DS1307 {
      * set minute
      * @param dat is the Minute will be set, eg: 0
      */
-    //% blockId="DS1307_SET_MINUTE" block="set minute %dat"
+    //% blockId="DS1307_SET_MINUTE" block="régler minute %dat"
     //% weight=64 blockGap=8
     //% dat.min=0 dat.max=59
     //% parts=DS1307 trackArgs=0
@@ -208,7 +208,7 @@ namespace DS1307 {
     /**
      * get Second
      */
-    //% blockId="DS1307_GET_SECOND" block="second"
+    //% blockId="DS1307_GET_SECOND" block="seconde"
     //% weight=93 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getSecond(): number {
@@ -219,7 +219,7 @@ namespace DS1307 {
      * set second
      * @param dat is the Second will be set, eg: 0
      */
-    //% blockId="DS1307_SET_SECOND" block="set second %dat"
+    //% blockId="DS1307_SET_SECOND" block="régler seconde %dat"
     //% weight=63 blockGap
     //% dat.min=0 dat.max=59
     //% parts=DS1307 trackArgs=0
@@ -237,7 +237,7 @@ namespace DS1307 {
      * @param minute is the Minute will be set, eg: 0
      * @param second is the Second will be set, eg: 0
      */
-    //% blockId="DS1307_SET_DATETIME" block="set year %year|month %month|day %day|weekday %weekday|hour %hour|minute %minute|second %second"
+    //% blockId="DS1307_SET_DATETIME" block="régler année %year|mois %month|jour %day|jour de la semaine %weekday|heure %hour|minute %minute|seconde %second"
     //% weight=60 blockGap
     //% parts=DS1307 trackArgs=0
     export function DateTime(year: number, month: number, day: number, weekday: number, hour: number, minute: number, second: number): void {
@@ -252,5 +252,4 @@ namespace DS1307 {
         buf[7] = DecToHex(year % 100);
         pins.i2cWriteBuffer(DS1307_I2C_ADDR, buf)
     }
-
 }
